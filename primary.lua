@@ -13,7 +13,7 @@ function play(filename, tempo)
   end
   
   for l, line in ipairs(lines) do
-    if line ~= "X\n" then
+    if line ~= "X" then
       instr = tonumber(line)
       key = tonumber(line)
       note = { instr, key }
