@@ -1,4 +1,5 @@
-
+side = "back"
+rednet.open(side)
 local modem = peripheral.wrap(side) --identify note blocks
 local peripherals = modem.getNamesRemote()
 local nperipherals = #peripherals
@@ -20,7 +21,7 @@ function play(filename, tempo)
       rednet.send(peripherals[idx], msg)
       idx = idx % nperipherals + 1
     else
-      sleep(tempo/20)
+      sleep(1/tempo)
     end
   end
 
