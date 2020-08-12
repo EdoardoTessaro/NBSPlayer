@@ -12,13 +12,13 @@ function play(filename, tempo)
     lines[#lines+1] = line
   end
   
-  for l, line in ipairs(lines)
+  for l, line in ipairs(lines) do
     if line ~= "X\n" then
-      instr = tonomber(line)
-      key = tonomber(line)
+      instr = tonumber(line)
+      key = tonumber(line)
       note = { instr, key }
       msg = textutils.serialize(note)
-      rednet.send(peripherals[idx], msg)
+      rednet.send(idx, msg)
       idx = idx % nperipherals + 1
     else
       sleep(1/tempo)
