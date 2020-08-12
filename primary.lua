@@ -12,10 +12,12 @@ function play(filename, tempo)
     lines[#lines+1] = line
   end
   
-  for l, line in ipairs(lines) do
-    if line ~= "X" then
-      instr = tonumber(line)
-      key = tonumber(line)
+  for l=0,#lines-1 do
+    if lines[l] ~= "X" then
+      print(lines[l].." "..lines[l+1])
+      instr = tonumber(lines[l])
+      l = l+1
+      key = tonumber(lines[l])
       note = { instr, key }
       msg = textutils.serialize(note)
       rednet.send(idx, msg)
@@ -23,7 +25,6 @@ function play(filename, tempo)
     else
       sleep(1/tempo)
     end
-    l = l+1
   end
 
   f.close()

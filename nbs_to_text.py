@@ -55,7 +55,7 @@ while True:
         inst = getInt(1, nbs)
         key = getInt(1, nbs)
         if key >= 33 and key <= 56:
-            rnb.write(str(inst) + "\n" + str(key) +"\n")
+            rnb.write(str(inst) + "\n" + str(key-32) +"\n")
         elif key == 57:
             print("WARNING: High F# note detected")
     song_height = max(song_height, height)
