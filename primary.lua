@@ -1,5 +1,4 @@
 side = "back"
-rednet.open(side)
 local modem = peripheral.wrap(side) --identify note blocks
 local peripherals = modem.getNamesRemote()
 local nperipherals = #peripherals
