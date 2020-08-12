@@ -20,7 +20,7 @@ function play(filename, tempo)
       key = tonumber(lines[l])
       note = { instr, key }
       msg = textutils.serialize(note)
-      rednet.send(idx, msg)
+      modem.transmit(idx, nperipherals, msg)
       idx = idx % nperipherals + 1
     else
       sleep(1/tempo)
