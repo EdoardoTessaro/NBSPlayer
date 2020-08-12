@@ -11,8 +11,8 @@ function play(filename, tempo)
   for line in f.readLine do
     lines[#lines+1] = line
   end
-  l = 0
-  while true do
+  
+  for l, line in ipairs(lines)
     if line ~= "X\n" then
       instr = tonomber(line)
       key = tonomber(line)
@@ -23,6 +23,7 @@ function play(filename, tempo)
     else
       sleep(1/tempo)
     end
+    l = l+1
   end
 
   f.close()
