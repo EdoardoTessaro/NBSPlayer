@@ -1,4 +1,5 @@
 id = tonumber(fs.open("id", "r").readAll())
+print("ID: "..id)
 monitor_side = "bottom"
 modem = peripheral.wrap(monitor_side)
 rednet.open(monitor_side)

@@ -14,7 +14,7 @@ function play(filename, tempo)
   l=1
   while l<#lines do
     if lines[l] ~= "X" then
-      print(lines[l].." "..lines[l+1])
+      print("ID "..idx.." "..lines[l].." "..lines[l+1])
       instr = tonumber(lines[l])
       l = l+1
       key = tonumber(lines[l])
