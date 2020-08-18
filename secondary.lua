@@ -1,3 +1,7 @@
+instrument = {}
+instrument[1] = 1
+instrument[2] = 2
+
 id = tonumber(fs.open("id", "r").readAll())
 print("ID: "..id)
 monitor_side = "bottom"

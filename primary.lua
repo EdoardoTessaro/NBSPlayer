@@ -4,7 +4,7 @@ local peripherals = modem.getNamesRemote()
 local nperipherals = #peripherals
 
 function play(filename, tempo)
-  local idx = 1
+  local idx = 0
   local f = fs.open(filename, "r")
   local lines = {}
   for line in f.readLine do
@@ -16,12 +16,13 @@ function play(filename, tempo)
     if lines[l] ~= "X" then
       print("ID "..idx.." "..lines[l].." "..lines[l+1])
       instr = tonumber(lines[l])
+      
       l = l+1
       key = tonumber(lines[l])
       note = { instr, key }
       msg = textutils.serialize(note)
       modem.transmit(idx, nperipherals, msg)
-      idx = idx % nperipherals + 1
+      idx = (idx+1) % nperipherals
     else
       sleep(1/tempo)
     end
